@@ -91,4 +91,6 @@ ENV/
 .ropeproject
 
 # pip selfcheck
-crawler-bot-env
+env
+
+main.db
