@@ -1,6 +1,6 @@
 from os import environ
-from Flask import Flask
+from flask import Flask
 
 app = Flask(__name__)
-app.run(environ.get('PORT'))
+app.run(environ['PORT'])
 
