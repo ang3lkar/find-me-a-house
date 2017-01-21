@@ -4,6 +4,7 @@ import argparse
 import os
 import pprint
 import sqlite3
+import sys
 import urllib.request
 
 from bs4 import BeautifulSoup
