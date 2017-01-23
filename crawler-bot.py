@@ -134,6 +134,9 @@ else:
     }
     # Send a message to me
     print('Sending ad to Slack...')
+    pprint.pprint(home_attachment)
     slack = Slacker(os.environ['SLACK_TOKEN'])
     slack.chat.post_message(
         '@angelos', 'Νέα αγγελία από Χρυσή ευκαιρία!', attachments=[home_attachment])
+
+

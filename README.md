@@ -9,5 +9,5 @@ source crawler-bot-env/bin/activate
 ## Display result in terminal but do not send anything
 `python3 crawler-bot.py --dry-run`
 
-## Display result in terminal
-`python3 crawler-bot.py --verbose`
+## Run but reset database
+`python3 crawler-bot.py --reset`
