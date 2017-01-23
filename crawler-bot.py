@@ -3,6 +3,7 @@
 import argparse
 import os
 import pprint
+import psycopg2
 import sqlite3
 import sys
 import urllib.request
@@ -71,14 +72,20 @@ else:
 # save latest home to DB
 con = None
 try:
-    con = sqlite3.connect('main.db')
+    # con = sqlite3.connect('main.db')
+    con = psycopg2.connect(
+        host=os.environ['DATABASE_HOST'],
+        dbname=os.environ['DATABASE_NAME'],
+        user=os.environ['DATABASE_USER'],
+        password=os.environ['DATABASE_PASSWORD']
+    )
     cur = con.cursor()
 
     if args.reset:
         cur.execute('DROP TABLE IF EXISTS houses')
 
     cur.execute('CREATE TABLE IF NOT EXISTS houses (' +
-      'id INTEGER PRIMARY KEY autoincrement' + ',' +
+      'id SERIAL PRIMARY KEY' + ',' +
       'sys_id VARCHAR(64)' + ',' +
       'title VARCHAR(128)' + ',' +
       'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL)'
@@ -88,15 +95,17 @@ try:
     cur.execute('SELECT sys_id FROM houses ORDER BY created_at DESC LIMIT 1');
     row = cur.fetchone()
     if row is None:
-        print("No houses in store\n")
-        cur.execute("INSERT INTO houses(sys_id, title) VALUES (?, ?)", (sys_id, title,))
+        print("No houses in database\n")
+        data = (sys_id, title)
+        cur.execute("INSERT INTO houses(sys_id, title) VALUES (%s, %s);", data)
         con.commit()
 
     else:
         if row[0] == sys_id:
-            print('House already exists in database')
+            print('House \'{title}\' already exists in database'.format(title=title))
         else:
-            cur.execute("INSERT INTO houses(sys_id, title) VALUES (?, ?)", (sys_id, title,))
+            data = (sys_id, title)
+            cur.execute("INSERT INTO houses(sys_id, title) VALUES (%s, %s);", data)
             con.commit()
             print("New house in database: %s" % cur.lastrowid)
 
