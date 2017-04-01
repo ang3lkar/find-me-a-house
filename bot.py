@@ -22,7 +22,7 @@ if not models.User.table_exists():
     DB.create_tables([models.User, models.House])
 
 
-for user in models.User.select():
+for user in models.User.select().where(models.User.active == True):
     print('Crawling for {name}'.format(name=user.name))
 
     house = Crawler(user).latest()
