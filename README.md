@@ -1,5 +1,7 @@
 # Find-me-a-house messenger bot
 
+_uses Python 3_
+
 ## Installation
 ```
 pip install -r requirements.txt
