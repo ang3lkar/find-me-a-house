@@ -18,7 +18,7 @@ export FIND_ME_A_HOUSE_DATABASE_HOST='localhost'
 ```
 
 ## Example
-```python
+```bash
 # test that it runs
 python bot.py --smoke
 ```
