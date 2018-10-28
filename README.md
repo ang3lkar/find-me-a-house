@@ -1,6 +1,6 @@
-# home-ads-bot
+# Find-me-a-house messenger bot
 
-## Install and activate packages
+## Installation
 ```
 pip install -r requirements.txt
 source crawler-bot-env/bin/activate
