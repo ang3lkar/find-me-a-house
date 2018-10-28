@@ -6,7 +6,8 @@ pip install -r requirements.txt
 source crawler-bot-env/bin/activate
 ```
 
-```psql
+```
+// psql
 create database find_me_a_house;
 ```
 
@@ -27,7 +28,7 @@ export FIND_ME_A_HOUSE_DATABASE_HOST='localhost'
 python bot.py --smoke
 ```
 
-## Optional arguments
+### Arguments
 ```
   -h, --help      show this help message and exit
   -d, --dry-run   Display the results in terminal but do not actually send
