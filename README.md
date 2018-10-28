@@ -13,6 +13,9 @@ source crawler-bot-env/bin/activate
 create database find_me_a_house;
 ```
 
+## Setup facebook app/page
+https://blog.hartleybrody.com/fb-messenger-bot/
+
 ## Set the evironment variables
 ```
 FACEBOOK_PAGE_ACCESS_TOKEN=
