@@ -94,3 +94,5 @@ ENV/
 env
 
 main.db
+
+.vscode
