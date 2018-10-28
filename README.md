@@ -29,6 +29,7 @@ python bot.py --smoke
   -d, --dry-run   Display the results in terminal but do not actually send
                   them
   -r, --reset     Clean database
+  -s, --smoke     Smoke test, verify that it returns a house object
   -f, --facebook  Send message to Facebook Messenger
   -s, --slack     Send message to Slack
 ```
