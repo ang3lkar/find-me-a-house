@@ -25,7 +25,7 @@ if not models.User.table_exists():
 
 
 if ARGS.smoke:
-    print('Crawling using XE_URL, no users')
+    print('Testing FIND_MY_A_HOUSE_XE_URL...')
     house = Crawler(None).latest()
     print(house)
 

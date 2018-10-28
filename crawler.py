@@ -1,5 +1,6 @@
 from collections import namedtuple
-import urllib
+import ssl
+import urllib.request
 from bs4 import BeautifulSoup
 import os
 
@@ -66,8 +67,14 @@ class Crawler:
             return os.environ['FIND_ME_A_HOUSE_XE_URL']
 
     def _get_page(self, url):
-        stream = urllib.urlopen(url)
+        stream = urllib.request.urlopen(url, context=self._create_no_ssl_context())
         mybytes = stream.read()
         source = mybytes.decode("utf8")
         stream.close()
         return source
+
+    def _create_no_ssl_context(self):
+        ctx = ssl.create_default_context()
+        ctx.check_hostname = False
+        ctx.verify_mode = ssl.CERT_NONE
+        return ctx
