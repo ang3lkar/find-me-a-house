@@ -8,15 +8,18 @@ source crawler-bot-env/bin/activate
 
 ## Set the evironment variables
 ```
-XE_URL=
-SLACK_TOKEN=
 FACEBOOK_PAGE_ACCESS_TOKEN=
 
-# Postgres configuration
-DATABASE_HOST=
-DATABASE_NAME=
-DATABASE_USERNAME=
-DATABASE_PASSWORD=
+# Postgres configuration for local use
+export FIND_ME_A_HOUSE_DATABASE_NAME='find_me_a_house'
+export FIND_ME_A_HOUSE_DATABASE_USER='postgres'
+export FIND_ME_A_HOUSE_DATABASE_PASSWORD=
+export FIND_ME_A_HOUSE_DATABASE_HOST='localhost'
+```
+
+## Example
+```python
+python bot.py
 ```
 
 ## Optional arguments
