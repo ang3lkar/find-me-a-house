@@ -6,6 +6,10 @@ pip install -r requirements.txt
 source crawler-bot-env/bin/activate
 ```
 
+```psql
+create database find_me_a_house;
+```
+
 ## Set the evironment variables
 ```
 FACEBOOK_PAGE_ACCESS_TOKEN=
