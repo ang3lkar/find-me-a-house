@@ -20,6 +20,14 @@ if ARGS.reset:
 if not models.User.table_exists():
     print('No tables found, creating db schema')
     DB.create_tables([models.User, models.House])
+    print('Created User table...')
+    print('Created House table...')
+
+
+if ARGS.smoke:
+    print('Crawling using XE_URL, no users')
+    house = Crawler(None).latest()
+    print(house)
 
 
 for user in models.User.select().where(models.User.active == True):

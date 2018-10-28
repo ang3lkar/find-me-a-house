@@ -4,10 +4,10 @@ import peewee
 from playhouse.postgres_ext import *
 
 db = PostgresqlExtDatabase(
-    os.environ['DATABASE_NAME'],
-    user=os.environ['DATABASE_USER'],
-    password=os.environ['DATABASE_PASSWORD'],
-    host=os.environ['DATABASE_HOST'],
+    os.environ['FIND_ME_A_HOUSE_DATABASE_NAME'],
+    user=os.environ['FIND_ME_A_HOUSE_DATABASE_USER'],
+    password=os.environ['FIND_ME_A_HOUSE_DATABASE_PASSWORD'],
+    host=os.environ['FIND_ME_A_HOUSE_DATABASE_HOST'],
     register_hstore=False
 )
 
